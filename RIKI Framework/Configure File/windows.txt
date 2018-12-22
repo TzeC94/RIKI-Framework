@@ -1,0 +1,5 @@
+Screenwidth: 900
+screenheight: 720
+windowed: true
+cursor: true
+projectName: RIKI Framework 1.3
