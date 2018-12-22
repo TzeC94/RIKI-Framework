@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Sound">
+      <UniqueIdentifier>{cbb00800-a633-41aa-b03c-f422252ef3cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Texture">
+      <UniqueIdentifier>{e29e38dc-955e-4c0d-b84e-93b4eddb9111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Framwork cpp">
+      <UniqueIdentifier>{4ce97add-d876-4c6a-93a1-bb5099532e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Framework header">
+      <UniqueIdentifier>{f734b327-c30e-4d9c-8715-442933065a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Configure File">
+      <UniqueIdentifier>{5302be97-df18-4a00-b593-3d0c16a07087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FMOD">
+      <UniqueIdentifier>{16a250b2-ec93-4b23-81de-f986b5d388dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay files">
+      <UniqueIdentifier>{a94aa302-7889-4633-b4de-ca3e0dd15c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay files\Player">
+      <UniqueIdentifier>{b4ea4474-96ea-4f20-bff7-11b611a02f91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CentralManager.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="D3Dgraphics.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="scrollingEngine.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="rotation.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="tileManager.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Gameplay files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Source Files\Framwork cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="CentralManager.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="D3Dgraphics.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="scrollingEngine.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod.h">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod.hpp">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod_codec.h">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod_dsp.h">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod_errors.h">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod_memoryinfo.h">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="FMOD\fmod_output.h">
+      <Filter>Header Files\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="rotation.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="tileManager.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Gameplay files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\Framework header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FMOD\fmodex.dll">
+      <Filter>Header Files\FMOD</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="FMOD\fmodex_vc.lib">
+      <Filter>Header Files\FMOD</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\Tile.png">
+      <Filter>Resource Files\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Tile2.png">
+      <Filter>Resource Files\Texture</Filter>
+    </Image>
+    <Image Include="Texture\Player.png">
+      <Filter>Resource Files\Texture</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Configure File\map.txt">
+      <Filter>Resource Files\Configure File</Filter>
+    </Text>
+    <Text Include="Configure File\windows.txt">
+      <Filter>Resource Files\Configure File</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
