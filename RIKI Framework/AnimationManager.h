@@ -1,24 +1,27 @@
 #pragma once
 #include <d3dx9.h>
 
+#include "Time.h"
+
 class AnimationManager
 {
 public:
 	AnimationManager(void);
-	AnimationManager(float rectSizeX, float rectSizeY, float actualSizeX, float actualSizeY, float frameRate);
 	~AnimationManager(void);
 	
-	void initialize(float rectSizeX, float rectSizeY, float actualSizeX, float actualSizeY, float frameRate);
-	RECT getRect();
-	void animationGeneration();
-	void animationGeneration2();
+	void Initialize(D3DXVECTOR2 rectSize, D3DXVECTOR2 sheetSize, float secondsToNextAnimation);
+	RECT GetRect();
+	void AnimationUpdate();
 
-	void resetRect();
+	void ResetRect();
 
 private:
-	RECT rect;
-	float frameRate, count;
-	D3DXVECTOR2 rectSize, actualSize;
-	bool reverse;
+
+	RECT rect;	//Current rect size and position in the sprite sheet
+
+	float count, secondsToNextAnimation;	//Time Counter purposes
+
+	D3DXVECTOR2 rectSize, sheetSize;	//Size of the sprite sheet
+
 };
 

@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\Player.png" />
+    <Image Include="Texture\PlayerIDLE.png" />
     <Image Include="Texture\Tile.png" />
     <Image Include="Texture\Tile2.png" />
   </ItemGroup>

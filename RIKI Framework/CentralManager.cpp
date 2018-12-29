@@ -20,6 +20,7 @@ void CentralManager::initialize(){
 	SetCentre(centerTile, 45, 45);
 
 	player.Initialize();
+	playerAnimation.Initialize(D3DXVECTOR2(128.0f, 128.0f), D3DXVECTOR2(1024.0f, 128.0f), 0.25f);
 
 }
 
@@ -27,7 +28,7 @@ void CentralManager::loadPicture()
 {
 	LoadTexture("Texture/Tile.png", tile[0], 90, 90);
 	LoadTexture("Texture/Tile2.png", tile[1], 90, 90);
-	LoadTexture("Texture/Player.png", playerTexture, D3DX_DEFAULT, D3DX_DEFAULT);
+	LoadTexture("Texture/PlayerIDLE.png", playerTexture, D3DX_DEFAULT, D3DX_DEFAULT);
 
 }
 
@@ -36,9 +37,6 @@ void CentralManager::setRectsAndCenter(){
 }
 
 void CentralManager::drawTexture(){
-
-	//System update delta time
-	Time::instance()->update();
 
 	//System Update
 	sprite->SetTransform(&emptyMatrix);
@@ -60,7 +58,7 @@ void CentralManager::drawTexture(){
 
 	//Draw player
 	sprite->SetTransform(&player.transform.matrix);
-	Draw(playerTexture, player.transform.center, player.transform.position);
+	Draw(playerTexture, player.transform.center, playerAnimation.GetRect(), player.transform.position);
 
 	//System Update
 	sprite->SetTransform(&emptyMatrix);
@@ -71,6 +69,12 @@ void CentralManager::updateLogic(){
 
 	//DirectX Update
 	UpdateWorldMatrix();
+
+	//System update delta time
+	Time::instance()->update();
+
+	//Update Animation
+	playerAnimation.AnimationUpdate();
 
 	//Update player login
 	player.Update();

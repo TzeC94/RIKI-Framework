@@ -14,6 +14,7 @@
 #include "tileManager.h"
 #include "Time.h"
 #include "Input.h"
+#include "AnimationManager.h"
 
 #include "Player.h"
 
@@ -34,6 +35,8 @@ private:
 	Player player;
 
 	Input *input;
+
+	AnimationManager playerAnimation; 
 
 public:
 	CentralManager(void);
