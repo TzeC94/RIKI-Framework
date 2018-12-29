@@ -22,10 +22,10 @@ float Time::deltaTime()
 
 Time* Time::instance(){
 
-		if(s_instance == NULL)
-			s_instance = new Time;
+	if(s_instance == NULL)
+		s_instance = new Time;
 
-		return s_instance;
+	return s_instance;
 
 }
 
