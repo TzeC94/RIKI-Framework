@@ -3,53 +3,71 @@
 
 AnimationManager::AnimationManager(void)
 {
-	rectSize.x = 0;
-	rectSize.y = 0;
-	rect.left = 0;
-	rect.top = 0;
-	rect.right = 0;
-	rect.bottom = 0;
-	count = 0;
+	count = currentSheet = 0.0f;
+
+	currentRow = 1;
 }
 
 AnimationManager::~AnimationManager(void)
 {
 }
 
-void AnimationManager::Initialize(D3DXVECTOR2 rectSize, D3DXVECTOR2 sheetSize, float secondsToNextAnimation){
+void AnimationManager::InitNewAnimationSheet(D3DXVECTOR2 rectSize, D3DXVECTOR2 sheetSize, float secondsToNextAnimation, int noOfRow){
 
-	this->rectSize = rectSize;
-	this->sheetSize = sheetSize;
-	this->secondsToNextAnimation = secondsToNextAnimation;
+	AnimationData AD;
+	AD.rectSize = rectSize;
+	AD.sheetSize = sheetSize;
+	AD.secondsToNextAnimation = secondsToNextAnimation;
 
-	rect.left = 0;
-	rect.top = 0;
-	rect.right = (long)rectSize.x;
-	rect.bottom = (long)rectSize.y;
+	AD.totalRow = noOfRow;
 
-	count = 0;
+	AD.rect.left = 0;
+	AD.rect.top = 0;
+	AD.rect.right = (long)rectSize.x;
+	AD.rect.bottom = (long)rectSize.y;
+
+
+	animationData.push_back(AD);
 
 }
 
 RECT AnimationManager::GetRect()
 {
-	return rect;
+
+	return animationData[currentSheet].rect;
+
 }
 
 void AnimationManager::AnimationUpdate(){
 
-	if(count >= secondsToNextAnimation){
+	if(count >= animationData[currentSheet].secondsToNextAnimation){
 
 		//Loop Process
-		if(rect.right == (long)sheetSize.x){
+		if(animationData[currentSheet].rect.right >= (long)animationData[currentSheet].sheetSize.x){
 			
-			rect.left = (long)0.0f;
-			rect.right = (long)rectSize.x;
+			if(currentRow < animationData[currentSheet].totalRow){
+
+				currentRow++;
+
+				animationData[currentSheet].rect.top += (long)animationData[currentSheet].rectSize.y;
+				animationData[currentSheet].rect.bottom += (long)animationData[currentSheet].rectSize.y;
+
+			}else{
+			
+				currentRow = 0;
+
+				animationData[currentSheet].rect.top = (long)0.0f;
+				animationData[currentSheet].rect.bottom = (long)animationData[currentSheet].rectSize.y;
+
+			}
+
+			animationData[currentSheet].rect.left = (long)0.0f;
+			animationData[currentSheet].rect.right = (long)animationData[currentSheet].rectSize.x;
 
 		}else{
 		
-			rect.left += (long)rectSize.x;
-			rect.right += (long)rectSize.x;
+			animationData[currentSheet].rect.left += (long)animationData[currentSheet].rectSize.x;
+			animationData[currentSheet].rect.right += (long)animationData[currentSheet].rectSize.x;
 
 		}
 
@@ -61,12 +79,27 @@ void AnimationManager::AnimationUpdate(){
 
 }
 
+void AnimationManager::SetCurrentSheet(int sheetNo){
+
+	ResetRect();
+
+	currentSheet = sheetNo;
+
+}
+
 void AnimationManager::ResetRect()
 {
-	rect.left = 0;
-	rect.top = 0;
-	rect.right = (long)this->rectSize.x;
-	rect.bottom = (long)this->rectSize.y;
+	
+	int loopCount = animationData.size();
+
+	for(int i = 0; i < loopCount; i++){
+	
+		animationData[i].rect.left = animationData[i].rect.top = (long)0.0f;
+		animationData[i].rect.right = (long)this->animationData[i].rectSize.x;
+		animationData[i].rect.bottom = (long)this->animationData[i].rectSize.y;
+
+	}
+
 	count = 0.0f;
-	secondsToNextAnimation = 0.0f;
+
 }

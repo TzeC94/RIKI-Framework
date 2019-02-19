@@ -1,7 +1,23 @@
 #pragma once
 #include <d3dx9.h>
 
+#include <vector>
+
 #include "Time.h"
+
+using namespace std;
+
+struct AnimationData{
+
+	int totalRow;
+
+	RECT rect;	//Current rect size and position in the sprite sheet
+
+	float secondsToNextAnimation;	//Time Counter purposes
+
+	D3DXVECTOR2 rectSize, sheetSize;	//Size of the sprite sheet
+
+};
 
 class AnimationManager
 {
@@ -9,19 +25,22 @@ public:
 	AnimationManager(void);
 	~AnimationManager(void);
 	
-	void Initialize(D3DXVECTOR2 rectSize, D3DXVECTOR2 sheetSize, float secondsToNextAnimation);
+	void InitNewAnimationSheet(D3DXVECTOR2 rectSize, D3DXVECTOR2 sheetSize, float secondsToNextAnimation, int noOfRow);
 	RECT GetRect();
 	void AnimationUpdate();
+
+	//Function to set current sheet of animation to play
+	void SetCurrentSheet(int sheetNo);
 
 	void ResetRect();
 
 private:
 
-	RECT rect;	//Current rect size and position in the sprite sheet
+	float count;
+	int currentSheet;
 
-	float count, secondsToNextAnimation;	//Time Counter purposes
+	int currentRow;
 
-	D3DXVECTOR2 rectSize, sheetSize;	//Size of the sprite sheet
+	vector<AnimationData> animationData;
 
 };
-

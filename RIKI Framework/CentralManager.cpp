@@ -20,7 +20,7 @@ void CentralManager::initialize(){
 	SetCentre(centerTile, 45, 45);
 
 	player.Initialize();
-	playerAnimation.Initialize(D3DXVECTOR2(128.0f, 128.0f), D3DXVECTOR2(1024.0f, 128.0f), 0.25f);
+	playerAnimation.InitNewAnimationSheet(D3DXVECTOR2(128.0f, 128.0f), D3DXVECTOR2(1024.0f, 128.0f), 0.25f);
 
 }
 
