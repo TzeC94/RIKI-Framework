@@ -16,10 +16,14 @@ private:
 
 	float speed;
 
+	bool move;
+
 public:
 
 	void Initialize();
 	void Update();
+	
+	void SetMovement(bool canMove);
 
 	Transform transform;
 

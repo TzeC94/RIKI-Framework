@@ -32,7 +32,7 @@ private:
 
 	LPDIRECT3DTEXTURE9 tile[2], playerTexture;
 
-	Player player;
+	Player player, playerP;
 
 	Input *input;
 

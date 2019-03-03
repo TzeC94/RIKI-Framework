@@ -19,8 +19,13 @@ void CentralManager::initialize(){
 	SetPosition(tilePos, 0, 0);
 	SetCentre(centerTile, 45, 45);
 
+	playerP.Initialize();
+
 	player.Initialize();
-	playerAnimation.InitNewAnimationSheet(D3DXVECTOR2(128.0f, 128.0f), D3DXVECTOR2(1024.0f, 128.0f), 0.25f);
+	player.SetMovement(false);
+	player.transform.parent = &playerP.transform;
+	player.transform.SetLocalPosition(D3DXVECTOR2(50, 50));
+	playerAnimation.InitNewAnimationSheet(D3DXVECTOR2(128.0f, 128.0f), D3DXVECTOR2(1024.0f, 128.0f), 0.25f, 0);
 
 }
 
@@ -57,8 +62,11 @@ void CentralManager::drawTexture(){
 	}
 
 	//Draw player
+	sprite->SetTransform(&playerP.transform.matrix);
+	Draw(playerTexture, playerP.transform.center, playerAnimation.GetRect());
+
 	sprite->SetTransform(&player.transform.matrix);
-	Draw(playerTexture, player.transform.center, playerAnimation.GetRect(), player.transform.position);
+	Draw(playerTexture, player.transform.center, playerAnimation.GetRect());
 
 	//System Update
 	sprite->SetTransform(&emptyMatrix);
@@ -77,6 +85,7 @@ void CentralManager::updateLogic(){
 	playerAnimation.AnimationUpdate();
 
 	//Update player login
+	playerP.Update();
 	player.Update();
 
 }
