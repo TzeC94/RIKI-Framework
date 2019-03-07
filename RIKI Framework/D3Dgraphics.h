@@ -65,12 +65,15 @@ public:
 
 	//Simple draw function by passing in the position only
 	void Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Position);
+	//draw an object with passing the rectangle of the object
+	void Draw(LPDIRECT3DTEXTURE9 &name, RECT &nameRect);
 	//Simple draw function by passing in the poistion and the color
 	void Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Position, int R, int G, int B);
 	//draw an object with passing the rectangle of the object
 	void Draw(LPDIRECT3DTEXTURE9 &name, RECT &nameRect, D3DXVECTOR2 Position);
 	//draw an object with passing the rectangle of the object and the color
 	void Draw(LPDIRECT3DTEXTURE9 &name, RECT &nameREct, D3DXVECTOR2 Position, int R, int G, int B);
+	void Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Centre, RECT &nameRect);
 	//draw an object with passing the centre of the object
 	void Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Centre, D3DXVECTOR2 Position);
 	//draw an object with passing the centre of the object and the color

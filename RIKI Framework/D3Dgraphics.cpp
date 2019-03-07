@@ -97,6 +97,12 @@ void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Position)
 	sprite->Draw(name, NULL, NULL, &D3DXVECTOR3(Position.x, Position.y, 0), D3DCOLOR_XRGB(255, 255, 255));
 }
 
+void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, RECT &nameRect)
+{
+	//sprite->Draw(name, &nameRect, &D3DXVECTOR3(x1, y1, z1), &D3DXVECTOR3(x2, y2, z2), D3DCOLOR_XRGB(255, 255, 255));
+	sprite->Draw(name, &nameRect, NULL, NULL, D3DCOLOR_XRGB(255, 255, 255));
+}
+
 void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Position, int R, int G, int B)
 {
 	sprite->Draw(name, NULL, NULL, &D3DXVECTOR3(Position.x, Position.y, 0), D3DCOLOR_XRGB(R, G, B));
@@ -122,6 +128,11 @@ void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Centre, D3DXVECTOR2
 void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Centre, D3DXVECTOR2 Position, int R, int G, int B)
 {
 	sprite->Draw(name, NULL, &D3DXVECTOR3(Centre.x, Centre.y, 0), &D3DXVECTOR3(Position.x, Position.y, 0), D3DCOLOR_XRGB(R, G, B));
+}
+
+void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Centre, RECT &nameRect)
+{
+	sprite->Draw(name, &nameRect, &D3DXVECTOR3(Centre.x, Centre.y, 0), NULL, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 void D3Dgraphics::Draw(LPDIRECT3DTEXTURE9 &name, D3DXVECTOR2 Centre, RECT &nameRect, D3DXVECTOR2 Position)

@@ -12,31 +12,80 @@ Transform::~Transform(void)
 
 void Transform::Initialize(){
 
-	position = center = heading = D3DXVECTOR2(0,0);
+	position = localPosition = center = heading = D3DXVECTOR2(0,0);
 	scaling = D3DXVECTOR2(1, 1);
 	radian = 0;
-
+	UpdatePosition();
 }
 
 void Transform::Update(){
 
-	Matrix(matrix, radian, scaling, heading, position);
+	Matrix();
+
+	UpdatePosition();
+
+	//std::cout<<position.x<<","<<localPosition.x<<"\n";
 
 }
 
-void Transform::Matrix(D3DXMATRIX &matri, float Radian1, D3DXVECTOR2 &scaling, D3DXVECTOR2 &headings, D3DXVECTOR2 Pos)
+void Transform::UpdatePosition(){
+
+	D3DXVECTOR2 vVector = D3DXVECTOR2(0.0, 0.0);
+
+	if(parent != NULL){
+	
+		vVector = parent->position;
+
+	}
+
+	position = vVector + localPosition;
+
+}
+
+D3DXVECTOR2 Transform::GetPosition(){
+
+	return position;
+
+}
+
+void Transform::SetPosition(D3DXVECTOR2 vector){
+
+	localPosition = vector - position;
+	
+}
+
+D3DXVECTOR2 Transform::GetLocalPosition(){
+
+	return localPosition;
+
+}
+
+void Transform::SetLocalPosition(D3DXVECTOR2 vector){
+
+	localPosition = vector;
+	position += localPosition;
+	UpdatePosition();
+}
+
+void Transform::Translate(D3DXVECTOR2 direction){
+
+	SetLocalPosition(GetLocalPosition() + direction);
+
+}
+
+void Transform::Matrix()
 {
-	headings.x = sin(Radian1);
-	headings.y = -cos(Radian1);
+	heading.x = sin(radian);
+	heading.y = -cos(radian);
 
-	mCenter = Pos;
+	mCenter = position;
 
-	D3DXMatrixTransformation2D(&matri,
+	D3DXMatrixTransformation2D(&matrix,
 									NULL,
-									NULL,
+									0.0,
 									&scaling,
-									&Pos,
-									Radian1,
-									NULL
+									&center,
+									radian,
+									&position
 									);
 }
