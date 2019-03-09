@@ -161,6 +161,9 @@
     <Image Include="Texture\PlayerIDLE.png">
       <Filter>Resource Files\Texture</Filter>
     </Image>
+    <Image Include="Texture\BGmountain.png">
+      <Filter>Resource Files\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Configure File\map.txt">

@@ -33,8 +33,6 @@ void Player::KeyInput(){
 
 	float deltaTime = Time::instance()->deltaTime();
 
-	cout<<"Player P";
-
 	if(Input::instance()->DIisKey(DIK_D)){
 	
 		transform.Translate(D3DXVECTOR2(1, 0) * speed * deltaTime);

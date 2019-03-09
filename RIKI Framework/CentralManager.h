@@ -15,6 +15,7 @@
 #include "Time.h"
 #include "Input.h"
 #include "AnimationManager.h"
+#include "scrollingEngine.h"
 
 #include "Player.h"
 
@@ -24,19 +25,22 @@ using namespace std;
 class CentralManager:public D3Dgraphics
 {
 private:
-	D3DXVECTOR2 tilePos, centerTile;
+	D3DXVECTOR2 tilePos, centerTile, mountainCenter;
 
 	tileManager TM;
 
 	Time time;
 
-	LPDIRECT3DTEXTURE9 tile[2], playerTexture;
+	LPDIRECT3DTEXTURE9 tile[2], playerTexture, mountain;
 
 	Player player, playerP;
 
 	Input *input;
 
 	AnimationManager playerAnimation; 
+
+	//Scrolling
+	scrollingEngine scroll_mountain;
 
 public:
 	CentralManager(void);

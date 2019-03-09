@@ -111,6 +111,7 @@
     <Library Include="FMOD\fmodex_vc.lib" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Texture\BGmountain.png" />
     <Image Include="Texture\Player.png" />
     <Image Include="Texture\PlayerIDLE.png" />
     <Image Include="Texture\Tile.png" />
